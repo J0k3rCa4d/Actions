@@ -5,6 +5,11 @@ name: Build continuous integration (CI) workflows by using GitHub Actions
 
 on: [push, workflow_dispatch]
 
+env:
+  FILE_NAME: info.txt
+  FILE_PATH: info
+  AUTHOR_NAME: Bartek
+  
 jobs:
   upload:
     name: Upload File
@@ -12,18 +17,13 @@ jobs:
     if: github.ref == 'refs/heads/main'
     
     steps:
-
       - name: Print text to file
         run: echo "Deploying to production server on branch $GITHUB_REF, changed by $AUTHOR_NAME" > $FILE_NAME
-        env:
-          FILE_NAME: info.txt
-          AUTHOR_NAME: Bartek
-
       - name: Upload $FILE_NAME artifact
-      - uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v2
         with: 
-          name: info
-          path: info.txt
+          name: $FILE_PATH
+          path: $FILE_NAME
           
   download:
     name: Download File
@@ -33,6 +33,6 @@ jobs:
       - name: Download $FILE_NAME
         uses: actions/download-artifact@v2
         with:
-          name: info
+          name: $FILE_PATH
       - name: Print artifact content
         run: cat info.txt
