@@ -10,10 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     steps:
-      - run: echo "Deploying to production server on branch $GITHUB_REF"
-      
-  dev-check:
-    runs-on: ubuntu-latest
-    if: github.ref != 'refs/heads/main'
-    steps:
-      - run: echo "Deploying to dev server on branch $GITHUB_REF"
+      - run: echo "Deploying to production server on branch $GITHUB_REF, changed by $AUTHOR_NAME"
+        env:
+          AUTHOR_NAME: Bartek
