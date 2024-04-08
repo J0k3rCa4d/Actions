@@ -3,7 +3,7 @@ name: Linter
 on: 
   push:
     branches:
-      - workflow/linter
+      - workflows/linter
   workflow_dispatch:
 
 jobs:
