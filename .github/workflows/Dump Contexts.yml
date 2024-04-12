@@ -1,11 +1,15 @@
 name: Context testing
-on: push
+on: workflow_dispatch
 
 jobs:
   dump_contexts_to_log:
     runs-on: ubuntu-latest
     steps:
-      - name: Dump GitHub context
+      - name: Dump Env context
+        env:
+          ENV_CONTEXT: ${{ toJson(env) }}
+        run: echo "$ENV_CONTEXT"
+      - name: Dump Env context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
