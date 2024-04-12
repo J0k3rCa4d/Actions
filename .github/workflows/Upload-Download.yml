@@ -1,14 +1,13 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
-name: Build continuous integration (CI) workflows by using GitHub Actions
+name: Download Upload file
 
 on: [workflow_dispatch]
 
 env:
   FILE_NAME: info.txt
   FILE_PATH: info
-  AUTHOR_NAME: Bartek
   
 jobs:
   upload:
@@ -17,13 +16,13 @@ jobs:
     if: github.ref == 'refs/heads/main'
     
     steps:
-      - name: Print text to ${FILE_NAME}
-        run: echo "Deploying to production server on branch $GITHUB_REF, changed by $AUTHOR_NAME" > ${FILE_NAME}
-      - name: Upload ${FILE_NAME} artifact
+      - name: Print text to ${{ FILE_NAME }}, run by ${{ github.actor }}
+        run: echo "Deploying to production server on branch ${{ github.ref }}, changed by ${{ github.actor }}" > ${FILE_NAME}
+      - name: Upload ${{ FILE_NAME }} artifact
         uses: actions/upload-artifact@v2
         with: 
-          name: ${FILE_PATH}
-          path: ${FILE_NAME}
+          name: ${{ FILE_PATH }}
+          path: ${{ FILE_NAME }}
           
   download:
     name: Download File
