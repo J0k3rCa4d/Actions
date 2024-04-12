@@ -21,8 +21,8 @@ jobs:
       - name: Upload ${{ env.FILE_NAME }} artifact
         uses: actions/upload-artifact@v2
         with: 
-          name: ${{ FILE_PATH }}
-          path: ${{ FILE_NAME }}
+          name: ${{ env.FILE_PATH }}
+          path: ${{ env.FILE_NAME }}
           
   download:
     name: Download File
