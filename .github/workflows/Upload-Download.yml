@@ -6,7 +6,7 @@ name: Download Upload file
 on: [workflow_dispatch, push]
 
 env:
-  FILE_NAME: info
+  FILE_NAME: info.txt
   FILE_PATH: info.txt
   
 jobs:
