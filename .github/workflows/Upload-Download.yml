@@ -6,8 +6,8 @@ name: Download Upload file
 on: [workflow_dispatch, push]
 
 env:
-  FILE_NAME: info.txt
-  FILE_PATH: info
+  FILE_NAME: info
+  FILE_PATH: info.txt
   
 jobs:
   upload:
@@ -16,13 +16,13 @@ jobs:
     if: ${{ github.ref == 'refs/heads/main' }}
     
     steps:
-      - name: Print text to $FILE_NAME, run by ${{ github.actor }}
+      - name: Print text to ${{FILE_NAME}}, run by ${{ github.actor }}
         run: echo "Deploying artifact on branch ${{ github.ref }}, changed by ${{ github.actor }}" > ${{ env.FILE_NAME }}
       - name: Upload ${{ env.FILE_NAME }} artifact
         uses: actions/upload-artifact@v2
         with: 
-          name: ${{ env.FILE_PATH }}
-          path: ${{ env.FILE_NAME }}
+          name: ${{ env.FILE_NAME }}
+          path: ${{ env.FILE_PATH }}
           
   download:
     name: Download File
