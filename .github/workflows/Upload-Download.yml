@@ -16,7 +16,7 @@ jobs:
     if: ${{ github.ref == 'refs/heads/main' }}
     
     steps:
-      - name: Print text to ${{FILE_NAME}}, run by ${{ github.actor }}
+      - name: Print text to ${{ env.FILE_NAME }}, run by ${{ github.actor }}
         run: echo "Deploying artifact on branch ${{ github.ref }}, changed by ${{ github.actor }}" > ${{ env.FILE_NAME }}
       - name: Upload ${{ env.FILE_NAME }} artifact
         uses: actions/upload-artifact@v2
