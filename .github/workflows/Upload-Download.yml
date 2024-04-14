@@ -3,7 +3,11 @@
 
 name: Download Upload file
 
-on: [workflow_dispatch, push]
+on: 
+  workflow_dispatch:
+  push:
+     paths-ignore:
+      - '.github/workflows/**'
 
 env:
   FILE_NAME: info.txt
