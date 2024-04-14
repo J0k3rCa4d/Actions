@@ -33,8 +33,8 @@ jobs:
       - name: Print the input tag to STDOUT
         run: |
           echo \
-            Log level: ${{ inputs.tags }}, \
+            Log level: ${{ inputs.log_levels }}, \
             PrintTags: ${{ inputs.print_tags }} \
             Tags: ${{ inputs.tags }} \
-            EnvName: ${{ vars.NAME }}
+            Env: ${{ inputs.environment }}, Vars ${{ vars.ENV_NAME }}
             
