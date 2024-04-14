@@ -1,11 +1,11 @@
 name: Print Inputs
 
 on:
-  worklow_dispatch:
+  workflow_dispatch:
     inputs: 
       log_levels:
         description: 'Log Level'
-        requred: true
+        required: true
         default: 'info'
         type: choice
         options: 
