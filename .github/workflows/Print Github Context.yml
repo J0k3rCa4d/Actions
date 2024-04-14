@@ -1,7 +1,0 @@
-name: print gihub context
-on: workflow_dispatch
-jobs:
-  Print-Github-Context:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo ${{ toJson(github.context }}
