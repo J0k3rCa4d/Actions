@@ -27,14 +27,15 @@ on:
         
 jobs:
   print-inputs:
+    environment: ${{ inputs.environment }}
     runs-on: ubuntu-latest
     if: ${{ inputs.print_tags }}
     steps:
       - name: Print the input tag to STDOUT
         run: |
-          echo \
-            Log level: ${{ inputs.log_levels }}, \
-            PrintTags: ${{ inputs.print_tags }} \
-            Tags: ${{ inputs.tags }} \
-            Env: ${{ inputs.environment }}, Vars ${{ vars.ENV_NAME }}
+          echo Log level: ${{ inputs.log_levels }}
+          echo Print: ${{ inputs.print_tags }}
+          echo Tags: ${{ inputs.tags }} 
+          echo Env: ${{ inputs.environment }}
+          echo EnvVar: ${{ vars.ENV_NAME }}
             
