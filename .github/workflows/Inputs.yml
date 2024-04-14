@@ -17,11 +17,11 @@ on:
         required: true
         type: boolean
       tags:
-        description: 'Test scenario tags'
+        description: 'Tags'
         required: true
         type: string
       environment:
-        description: 'Environment to run tests against'
+        description: 'Environment'
         type: environment
         required: true
         
@@ -31,4 +31,10 @@ jobs:
     if: inputs.print_tag
     steps:
       - name: Print the input tag to STDOUT
-        run: echo Log level:${{ inputs.tags }}, 
+        run: |
+          echo \
+            Log level: ${{ inputs.tags }}, \
+            PrintTags: ${{ inputs.print_tags }} \
+            Tags: ${{ inputs.tags }} \
+            EnvName: ${{ vars.NAME }}
+            
