@@ -28,7 +28,7 @@ on:
 jobs:
   print-inputs:
     runs-on: ubuntu-latest
-    if: inputs.print_tag
+    if: ${{ inputs.print_tags }}
     steps:
       - name: Print the input tag to STDOUT
         run: |
