@@ -1,0 +1,13 @@
+name: Workflow commands
+
+on: workflow_dispatch
+
+jobs:
+  runs-on: ubuntu-latest
+  steps:
+  - name: Step 1 - Print debug message
+    run: |
+      echo "::debug::Debug message"
+  - name: Step 2 - Create notice
+    run: |
+      echo "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
