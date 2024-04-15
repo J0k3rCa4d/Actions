@@ -2,28 +2,19 @@ name: Workflow commands
 
 on: 
   workflow_dispatch:
-    inputs: 
-      log_levels:
-        description: 'Log Level'
-        required: true
-        default: 'info'
-        type: choice
-        options: 
-          - info
-          - warning
-          - debug
+    inputs:
       print_debug: 
         description: 'Turn on debug ?'
         type: choice
-        required: true
-        default: 'yes'
+        required: false
+        default: 'dev'
         options: 
-          - yes
-          - no
+          - dev
+          - ''
 
 jobs:
   commands:
-    environment: ${{ inputs.print_debug == 'yes' && 'dev' || '' }}
+    environment: ${{ inputs.print_debug == 'dev' && 'dev' || '' }}
     runs-on: ubuntu-latest
     steps:
     - name: Step 0 - Print env
