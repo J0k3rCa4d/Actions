@@ -1,9 +1,16 @@
 name: Workflow commands
 
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+    inputs: 
+      debug: 
+        required: true
+        description: Turn on debug ?
+        default: 'yes'
 
 jobs:
   commands:
+    environment: ${{ if eq(input.debug == 'yes'), 'dev', '' }}
     runs-on: ubuntu-latest
     steps:
     - name: Step 1 - Print debug message
