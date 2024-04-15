@@ -4,15 +4,16 @@ on:
   workflow_dispatch:
     inputs: 
       debug: 
+        type: choice
         required: false
         description: Turn on debug ?
         options: 
-          - 'yes'
-          - 'no'
+          - yes
+          - no
 
 jobs:
   commands:
-    environment: ${{ input.debug == 'yes' && 'dev' || '' }}
+    environment: ${{ inputs.debug == 'yes' && 'dev' || '' }}
     runs-on: ubuntu-latest
     steps:
     - name: Step 1 - Print debug message
