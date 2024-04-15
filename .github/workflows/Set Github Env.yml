@@ -4,11 +4,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Set the value
+    - name: Step 1 - Set the value
       id: step_one
       run: |
         echo "action_state=yellow" >> "$GITHUB_ENV"
-    - name: Use the value
+    - name: Step 2 - Use the value
       id: step_two
       run: |
         printf '%s\n' "$action_state" # This will output 'yellow'
+    - name: Step 3 - Set Summary
+      run: |
+        echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
