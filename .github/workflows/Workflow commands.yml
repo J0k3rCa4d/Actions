@@ -1,5 +1,6 @@
-${{ inputs.print_debug == 'turn on' && 'dev' || '' }}name: Workflow commands
+name: Workflow commands
 
+run-name: Print commands with debug ${{ inputs.print_debug }}
 on: 
   workflow_dispatch:
     inputs:
