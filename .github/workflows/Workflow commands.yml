@@ -3,14 +3,23 @@ name: Workflow commands
 on: 
   workflow_dispatch:
     inputs: 
+      log_levels:
+        description: 'Log Level'
+        required: true
+        default: 'info'
+        type: choice
+        options: 
+          - info
+          - warning
+          - debug
       print_debug: 
+        description: 'Turn on debug ?'
         type: choice
         required: true
-        description: Turn on debug ?
         default: 'yes'
         options: 
-          - 'yes'
-          - 'no'
+          - yes
+          - no
 
 jobs:
   commands:
