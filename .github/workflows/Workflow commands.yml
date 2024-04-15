@@ -1,4 +1,4 @@
-name: Workflow commands
+${{ inputs.print_debug == 'turn on' && 'dev' || '' }}name: Workflow commands
 
 on: 
   workflow_dispatch:
@@ -18,8 +18,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Step 0 - Print env
+      env:
+        PRINT_DEBUG: ${{ inputs.print_debug == 'turn on' && 'dev' || '' }}
       run: |
-        echo ${{ inputs.debug == 'yes' && 'dev' || '' }}
+        echo Env $PRINT_DEBUG
+     
         
     - name: Step 1 - Print debug message
       run: |
