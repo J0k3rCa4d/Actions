@@ -6,15 +6,15 @@ on:
       print_debug: 
         description: 'Turn on debug ?'
         type: choice
-        required: false
-        default: 'dev'
+        required: true
+        default: 'turn on'
         options: 
-          - dev
-          - ''
+          - 'turn on'
+          - 'turn off'
 
 jobs:
   commands:
-    environment: ${{ inputs.print_debug == 'dev' && 'dev' || '' }}
+    environment: ${{ inputs.print_debug == 'turn on' && 'dev' || '' }}
     runs-on: ubuntu-latest
     steps:
     - name: Step 0 - Print env
