@@ -12,6 +12,6 @@ jobs:
         uses: actions/cache@v4
         with:
           path: .
-          key: ${{ runner.os }-cache-${{ hashFiles('**/mock.txt') }}
+          key: ${{ runner.os }}-cache-${{ hashFiles('**/mock.txt') }}
           
     
