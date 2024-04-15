@@ -6,14 +6,13 @@ on:
       debug: 
         required: false
         description: Turn on debug ?
-        default: 'yes'
         options: 
           - 'yes'
           - 'no'
 
 jobs:
   commands:
-    environment: ${{ input.debug == 'yes' || 'dev' || '' }}
+    environment: ${{ input.debug == 'yes' && 'dev' || '' }}
     runs-on: ubuntu-latest
     steps:
     - name: Step 1 - Print debug message
