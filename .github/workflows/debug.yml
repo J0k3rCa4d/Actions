@@ -1,0 +1,25 @@
+name: Debug tests
+
+on:
+  push:
+    branches:
+      - debug
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setep 1 - Print debug setting
+        run: |
+          echo Is runner debug on: $ACTIONS_RUNNER_DEBUG
+          echo Is step debug on: $ACTIONS_STEP_DEBUG
+        env:
+          ACTIONS_RUNNER_DEBUG: ${{ secrets.ACTIONS_RUNNER_DEBUG }}
+          ACTIONS_STEP_DEBUG: ${{ secrets.ACTIONS_RUNNER_DEBUG }}
+
+      - name: Step 2 - Save runer logs to artifact
+        uses: actions/upload-artifact@4
+        with:
+          name: runner logs
+          path: ./runner-diagnostic-logs
+  
