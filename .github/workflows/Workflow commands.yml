@@ -15,7 +15,9 @@ on:
 
 jobs:
   commands:
-    environment: ${{ inputs.print_debug == 'turn on' && 'dev' || '' }}
+    environment: 
+      name: ${{ inputs.print_debug == 'turn on' && 'dev' || '' }}
+      url: 'https://github.com/J0k3rCa4d/Actions/edit/main/.github/workflows'
     runs-on: ubuntu-latest
     steps:
     - name: Step 0 - Print env
