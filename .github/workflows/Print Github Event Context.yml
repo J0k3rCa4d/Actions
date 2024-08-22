@@ -1,8 +1,0 @@
-name: print gihub event context
-on: workflow_dispatch
-jobs:
-  print-event:
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          echo '${{ toJSON(github.event) }}'
