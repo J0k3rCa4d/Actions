@@ -25,4 +25,4 @@ jobs:
         - name: Install NPM and build.
           run: |
             npm ci
-            npm run init
+            npm npm init --yes
