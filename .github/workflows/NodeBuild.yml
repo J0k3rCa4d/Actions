@@ -14,8 +14,8 @@ jobs:
         runs-on: ${{ matrix.os }}    
         strategy:
             matrix:
-                node-version: [12.x, 13.x, 14.x, 15.x]
-                os: [windows-latest, ubuntu-latest, macos-latest]
+                node-version: [20.x, 21.x, 22.x]
+                os: [ubuntu-latest, macos-latest]
         steps:
         - uses: actions/checkout@v1
         - name: Run node.js on latest Windows.
@@ -24,4 +24,4 @@ jobs:
             node-version: ${{ matrix.node-version }}
         - name: Install NPM and build.
           run: |
-            npm npm init --yes
+            npm init --yes
