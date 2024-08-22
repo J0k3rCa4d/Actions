@@ -1,7 +1,7 @@
 # .github/workflows/build.yml
 name: Node Build.
 
-on: [push]
+on: [push, workflow_dispatch]
 
 jobs:
 
