@@ -9,5 +9,5 @@ jobs:
       issues: write
       pull-requests: write
     steps:
-    - run: "echo Step 1"
-    - run: "echo ::debug::Step 2"
+    - run: echo "Step 1"
+    - run: echo "::debug::Step 2"
